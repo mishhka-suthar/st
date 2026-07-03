@@ -1,0 +1,109 @@
+/*
+ * SnackTrack workspace theme.
+ * Selectors are scoped to specific widget names (data-widget-name / item-name),
+ * so this never bleeds into other workspaces.
+ */
+
+:root {
+	--st-brand: #c0752d; /* app brand (sidebar icon, app logo) */
+	--st-brand-wash: rgba(192, 117, 45, 0.1);
+
+	--st-spend: #eb6834; /* This Month Spend - warm, money/consumption */
+	--st-spend-wash: rgba(235, 104, 52, 0.1);
+
+	--st-count: #0f8f68; /* Logs This Week - fresh, activity/count */
+	--st-count-wash: rgba(15, 143, 104, 0.1);
+
+	--st-report: #2a78d6; /* Daily Refreshment Report shortcut */
+	--st-report-wash: rgba(42, 120, 214, 0.1);
+
+	--st-border: rgba(11, 11, 11, 0.1);
+}
+
+[data-theme="dark"] {
+	--st-brand: #b8863f;
+	--st-brand-wash: rgba(184, 134, 63, 0.14);
+
+	--st-spend: #d95926;
+	--st-spend-wash: rgba(217, 89, 38, 0.16);
+
+	--st-count: #199e70;
+	--st-count-wash: rgba(25, 158, 112, 0.16);
+
+	--st-report: #3987e5;
+	--st-report-wash: rgba(57, 135, 229, 0.16);
+
+	--st-border: rgba(255, 255, 255, 0.12);
+}
+
+/* App sidebar icon */
+.sidebar-item-container[item-name="SnackTrack"] .sidebar-item-icon {
+	color: var(--st-brand);
+}
+
+/* Shortcut cards */
+.widget.shortcut-widget-box[data-widget-name="New Daily Log"],
+.widget.shortcut-widget-box[data-widget-name="Daily Refreshment Report"] {
+	border-radius: var(--border-radius-md, 8px);
+	border-left: 3px solid transparent;
+	transition:
+		transform 0.12s ease,
+		box-shadow 0.12s ease,
+		border-color 0.12s ease;
+}
+
+.widget.shortcut-widget-box[data-widget-name="New Daily Log"] {
+	border-left-color: var(--st-brand);
+}
+
+.widget.shortcut-widget-box[data-widget-name="New Daily Log"] .widget-title {
+	color: var(--st-brand);
+}
+
+.widget.shortcut-widget-box[data-widget-name="Daily Refreshment Report"] {
+	border-left-color: var(--st-report);
+}
+
+.widget.shortcut-widget-box[data-widget-name="Daily Refreshment Report"] .widget-title {
+	color: var(--st-report);
+}
+
+.widget.shortcut-widget-box[data-widget-name="New Daily Log"]:hover,
+.widget.shortcut-widget-box[data-widget-name="Daily Refreshment Report"]:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px var(--st-border);
+}
+
+/* Number cards */
+.widget.number-widget-box[data-widget-name="This Month Spend"],
+.widget.number-widget-box[data-widget-name="Logs This Week"] {
+	border-radius: var(--border-radius-md, 8px);
+	border-top: 3px solid transparent;
+	transition:
+		transform 0.12s ease,
+		box-shadow 0.12s ease;
+}
+
+.widget.number-widget-box[data-widget-name="This Month Spend"] {
+	border-top-color: var(--st-spend);
+	background: linear-gradient(180deg, var(--st-spend-wash), transparent 60%);
+}
+
+.widget.number-widget-box[data-widget-name="This Month Spend"] .number {
+	color: var(--st-spend);
+}
+
+.widget.number-widget-box[data-widget-name="Logs This Week"] {
+	border-top-color: var(--st-count);
+	background: linear-gradient(180deg, var(--st-count-wash), transparent 60%);
+}
+
+.widget.number-widget-box[data-widget-name="Logs This Week"] .number {
+	color: var(--st-count);
+}
+
+.widget.number-widget-box[data-widget-name="This Month Spend"]:hover,
+.widget.number-widget-box[data-widget-name="Logs This Week"]:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px var(--st-border);
+}
