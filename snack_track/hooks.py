@@ -6,7 +6,7 @@ app_email = "mishka.suthar25@gmail.com"
 app_license = "mit"
 app_icon = "octicon octicon-package"
 app_color = "#FF9818"
-app_logo_url = "/assets/snack_track/images/snacktrack-logo.png"
+app_logo_url = "snack_track/snack_track/images/snacktrack-logo.png"
 
 # Fixtures
 # ------------------
