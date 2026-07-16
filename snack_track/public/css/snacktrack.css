@@ -5,8 +5,8 @@
  */
 
 :root {
-	--st-brand: #c0752d; /* app brand (sidebar icon, app logo) */
-	--st-brand-wash: rgba(192, 117, 45, 0.1);
+	--st-brand: #ff9818; /* app brand (sidebar icon, app logo) - matches logo orange */
+	--st-brand-wash: rgba(255, 152, 24, 0.1);
 
 	--st-spend: #eb6834; /* This Month Spend - warm, money/consumption */
 	--st-spend-wash: rgba(235, 104, 52, 0.1);
@@ -21,8 +21,8 @@
 }
 
 [data-theme="dark"] {
-	--st-brand: #b8863f;
-	--st-brand-wash: rgba(184, 134, 63, 0.14);
+	--st-brand: #ffab3d;
+	--st-brand-wash: rgba(255, 171, 61, 0.14);
 
 	--st-spend: #d95926;
 	--st-spend-wash: rgba(217, 89, 38, 0.16);

@@ -5,7 +5,7 @@ app_description = "Manage office pantry, tea, coffee and refreshment expenses"
 app_email = "mishka.suthar25@gmail.com"
 app_license = "mit"
 app_icon = "octicon octicon-package"
-app_color = "#C0752D"
+app_color = "#FF9818"
 app_logo_url = "/assets/snack_track/images/snacktrack-logo.png"
 
 # Fixtures
