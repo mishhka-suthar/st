@@ -6,8 +6,7 @@ app_email = "mishka.suthar25@gmail.com"
 app_license = "mit"
 app_icon = "octicon octicon-package"
 app_color = "#FF9818"
-app_logo_url = "snack_track/snack_track/images/snacktrack-logo.png"
-
+app_logo_url = "file://wsl.localhost/Ubuntu/home/uvtech/frappe-bench/apps/snack_track/snack_track/public/images/snacktrack-logo.png"
 # Fixtures
 # ------------------
 
