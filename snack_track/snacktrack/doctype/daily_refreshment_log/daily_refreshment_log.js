@@ -36,10 +36,33 @@ function show_stats(frm) {
 	);
 }
 
+function set_default_supplier(frm) {
+	if (!frm.is_new() || frm.doc.supplier) {
+		return;
+	}
+
+	frappe.call({
+		method: "snack_track.snacktrack.doctype.snacktrack_settings.snacktrack_settings.get_default_supplier",
+	}).then((r) => {
+		if (r.message) {
+			frm.set_value("supplier", r.message);
+		}
+	});
+}
+
+function set_allowed_item_group(frm) {
+	frappe.db.get_single_value("SnackTrack Settings", "allowed_item_group").then((item_group) => {
+		frm.doc.__allowed_item_group = item_group;
+	});
+}
+
 function set_item_filter(frm) {
 	frm.fields_dict.items.grid.get_field("item").get_query = () => {
 		if (frm.doc.__snacktrack_item_group) {
 			return { filters: { item_group: frm.doc.__snacktrack_item_group } };
+		}
+		if (frm.doc.__allowed_item_group) {
+			return { filters: { item_group: ["descendants of (inclusive)", frm.doc.__allowed_item_group] } };
 		}
 		return {};
 	};
@@ -195,6 +218,10 @@ function setup_apply_template_button(frm) {
 }
 
 frappe.ui.form.on("Daily Refreshment Log", {
+	onload(frm) {
+		set_default_supplier(frm);
+		set_allowed_item_group(frm);
+	},
 	refresh(frm) {
 		show_stats(frm);
 		set_item_filter(frm);

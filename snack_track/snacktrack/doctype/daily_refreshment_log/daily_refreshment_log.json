@@ -58,7 +58,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "default": "TeaTorium",
    "fieldname": "supplier",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -111,7 +110,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-07-01 16:06:26.517788",
+ "modified": "2026-07-22 16:39:21.509017",
  "modified_by": "Administrator",
  "module": "SnackTrack",
  "name": "Daily Refreshment Log",

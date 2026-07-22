@@ -5,6 +5,7 @@ import frappe
 from frappe import _
 from frappe.model.document import Document
 from frappe.utils import flt, get_link_to_form
+from frappe.utils.nestedset import get_descendants_of
 
 
 class DailyRefreshmentLog(Document):
@@ -12,6 +13,7 @@ class DailyRefreshmentLog(Document):
 		self.calculate_totals()
 		self.check_duplicate_log()
 		self.warn_on_zero_amount()
+		self.validate_allowed_item_group()
 
 	def calculate_totals(self):
 		total_qty = 0
@@ -54,6 +56,28 @@ class DailyRefreshmentLog(Document):
 				indicator="orange",
 				alert=True,
 			)
+
+	def validate_allowed_item_group(self):
+		allowed_group = frappe.db.get_single_value("SnackTrack Settings", "allowed_item_group")
+		if not allowed_group or not self.items:
+			return
+
+		allowed_groups = {allowed_group, *get_descendants_of("Item Group", allowed_group)}
+
+		item_codes = {row.item for row in self.items if row.item}
+		item_groups = {
+			d.name: d.item_group
+			for d in frappe.get_all("Item", filters={"name": ("in", list(item_codes))}, fields=["name", "item_group"])
+		}
+
+		for row in self.items:
+			item_group = item_groups.get(row.item)
+			if item_group and item_group not in allowed_groups:
+				frappe.throw(
+					_("Row #{0}: Item {1} belongs to Item Group {2}, which is not allowed under {3}.").format(
+						row.idx, row.item, item_group, allowed_group
+					)
+				)
 
 
 @frappe.whitelist()

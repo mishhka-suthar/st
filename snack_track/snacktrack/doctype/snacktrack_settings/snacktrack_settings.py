@@ -11,6 +11,14 @@ class SnackTrackSettings(Document):
 
 
 @frappe.whitelist()
+def get_default_supplier():
+	supplier = frappe.db.get_single_value("SnackTrack Settings", "default_supplier")
+	if supplier and frappe.db.exists("Supplier", supplier):
+		return supplier
+	return None
+
+
+@frappe.whitelist()
 def get_budget_status():
 	settings = frappe.get_single("SnackTrack Settings")
 	month_start = get_first_day(nowdate())

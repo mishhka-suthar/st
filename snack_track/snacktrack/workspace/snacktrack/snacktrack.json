@@ -1,7 +1,7 @@
 {
  "app": "snack_track",
  "charts": [],
- "content": "[{\"id\": \"lXHKKhbi-F\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Quick Actions</b></span>\", \"col\": 12}}, {\"id\": \"Nv8R0s5X7b\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"New Daily Log\", \"col\": 3}}, {\"id\": \"B6IfKBZpWL\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Daily Refreshment Report\", \"col\": 3}}, {\"id\": \"LRk_PUoWyG\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"4ZHFHGC6Jw\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>This Month</b></span>\", \"col\": 12}}, {\"id\": \"7YsvVgc93y\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"This Month Spend\", \"col\": 4}}, {\"id\": \"NYiATjGu34\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Logs This Week\", \"col\": 4}}, {\"id\": \"VR6c_pYz1r\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"--dYf7WONZ\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Recent Logs</b></span>\", \"col\": 12}}, {\"id\": \"EdaXk_qTlr\", \"type\": \"quick_list\", \"data\": {\"quick_list_name\": \"Recent Logs\", \"col\": 12}}]",
+ "content": "[{\"id\":\"lXHKKhbi-F\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Actions</b></span>\",\"col\":12}},{\"id\":\"Nv8R0s5X7b\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Daily Log\",\"col\":3}},{\"id\":\"B6IfKBZpWL\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Daily Refreshment Report\",\"col\":4}},{\"id\":\"D_hxyqiH4O\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Snacktrack Settings\",\"col\":4}},{\"id\":\"LRk_PUoWyG\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"4ZHFHGC6Jw\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>This Month</b></span>\",\"col\":12}},{\"id\":\"7YsvVgc93y\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"This Month Spend\",\"col\":4}},{\"id\":\"NYiATjGu34\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Logs This Week\",\"col\":4}},{\"id\":\"VR6c_pYz1r\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"--dYf7WONZ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Recent Logs</b></span>\",\"col\":12}},{\"id\":\"EdaXk_qTlr\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Daily Refreshment Log\",\"col\":12}}]",
  "creation": "2026-07-02 16:10:52.181116",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "SnackTrack",
  "links": [],
- "modified": "2026-07-02 17:17:22.802020",
+ "modified": "2026-07-22 17:33:06.180325",
  "modified_by": "Administrator",
  "module": "SnackTrack",
  "name": "SnackTrack",
@@ -33,7 +33,7 @@
  "quick_lists": [
   {
    "document_type": "Daily Refreshment Log",
-   "label": "Recent Logs",
+   "label": "Daily Refreshment Log",
    "quick_list_filter": "[]"
   }
  ],
@@ -41,10 +41,18 @@
  "sequence_id": 1.0,
  "shortcuts": [
   {
-   "color": "Orange",
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Snacktrack Settings",
+   "link_to": "SnackTrack Settings",
+   "type": "DocType"
+  },
+  {
+   "color": "Yellow",
    "doc_view": "New",
    "label": "New Daily Log",
    "link_to": "Daily Refreshment Log",
+   "stats_filter": "[]",
    "type": "DocType"
   },
   {
